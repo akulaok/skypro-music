@@ -1,7 +1,7 @@
 import styles from './track.module.css';
 
 interface TrackTimeProps {
-  time: string;
+  time: number;
 }
 
 export default function TrackTime({ time }: TrackTimeProps) {

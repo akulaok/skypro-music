@@ -20,7 +20,12 @@
   margin-right: 15px;
 }
 
-.filter__button {
+.filter {
+  position: relative;
+  margin-right: 10px;
+}
+
+.filter_button {
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
@@ -30,18 +35,64 @@
   padding: 6px 20px;
 }
 
-.filter__button:not(:last-child) {
-  margin-right: 10px;
-}
-
-._btn_text:hover {
+.btn_text:hover {
   border-color: #d9b6ff;
   color: #d9b6ff;
   cursor: pointer;
 }
 
-._btn_text:active {
+.btn_text:active {
   border-color: #ad61ff;
   color: #ad61ff;
   cursor: pointer;
+}
+
+.active {
+  border-color: #d9b6ff;
+  color: #d9b6ff;
+}
+
+.list_wrapper {
+  background-color: #313131;
+  padding: 34px;
+  box-sizing: border-box;
+  border-radius: 12px;
+  position: absolute;
+  top: 48px;
+}
+
+.list {
+  max-height: 232px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  overflow: auto;
+}
+
+.list::-webkit-scrollbar {
+  width: 4px;
+}
+
+.list::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 1); /* Цвет полосы прокрутки */
+  border-radius: 4px; /* Закругление углов полосы прокрутки */
+}
+
+.list ::-webkit-scrollbar-track {
+  background: rgba(75, 73, 73, 1); /* Цвет фона дорожки прокрутки */
+}
+
+.list_item {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 24px;
+  color: #FFFFFF;
+  white-space: nowrap;
+  cursor: pointer;
+  margin-right: 7px;
+}
+
+.list_item:hover {
+  text-decoration: underline;
+  color: #B672FF;
 }
