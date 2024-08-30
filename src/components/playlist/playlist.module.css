@@ -16,5 +16,16 @@
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
   flex-direction: column;
-  overflow-y: auto;
+  overflow: auto;
+  height: calc(100vh - 460px);
+  scrollbar-width: none;
+}
+
+.content__playlist ::-webkit-scrollbar {
+  display: none;
+}
+
+.content__playlist {
+  -ms-overflow-style: none;
+
 }
