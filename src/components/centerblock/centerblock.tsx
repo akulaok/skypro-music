@@ -3,30 +3,13 @@ import { trackType } from '@/types';
 import Filter from '../filter/filter';
 import Playlist from '../playlist/playlist';
 import Search from '../search/search';
-import styles from './centerblock.module.css'
-import { useEffect, useState } from 'react';
-import { getTracks } from '@/api/getTracksApi';
-export default function Centreblock() {
+import styles from './centerblock.module.css';
 
-  const [tracks, setTracks] = useState<trackType[]>([]);
-  const [errorMessage, setErrorMessage] = useState<string>("");
+type CentreblockProps = {
+  tracks: trackType[];
+};
 
-  useEffect(() => {
-    const fetchTracks = async () => {
-      try {
-        const fetchedTracks = await getTracks();
-        setTracks(fetchedTracks);
-      } catch (error: unknown) {
-        setErrorMessage(
-          error instanceof Error
-            ? "Возникли проблемы при загрузке треков: " + error.message
-            : "Неизвестная ошибка"
-        );
-      }
-    };
-
-    fetchTracks();
-  }, []);
+export default function Centreblock({tracks}:CentreblockProps) {
 
   return (
     <div className={styles.main__centerblock}>

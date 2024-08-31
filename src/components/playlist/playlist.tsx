@@ -8,7 +8,6 @@ type PlaylistProps = {
 };
 
 export default function Playlist({ tracks }: PlaylistProps) {
-  console.log(tracks);
   return (
     <div className={styles.centerblock__content}>
       <PlaylistTitle />

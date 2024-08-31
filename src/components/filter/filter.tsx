@@ -10,11 +10,11 @@ type FilterProps = {
 };
 
 export default function Filter({ tracks }: FilterProps) {
-  const [activeFilter, setActiveFilter] = useState<string | null>(null);
-  console.log(activeFilter);
+  const [activeFilter, setActiveFilter] = useState('');
+
   function handleChangeFilter(filterName: string) {
     setActiveFilter((prevState) =>
-      prevState === filterName ? null : filterName
+      prevState === filterName ? '' : filterName
     );
   }
 

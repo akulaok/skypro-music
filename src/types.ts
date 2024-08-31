@@ -1,8 +1,8 @@
 export type userType = {
   "id": number,
   "username": string,
-  "first_name": "",
-  "last_name": "",
+  "first_name": string,
+  "last_name": string,
   "email": string,
 }
 export type trackType = {
