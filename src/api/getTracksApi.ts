@@ -5,10 +5,10 @@ export async function getTracks() {
     method: "GET",
   });
 
-if (!response.ok) {
-  throw new Error("Ошибка сервера");
-}
+  if (!response.ok) {
+    throw new Error("Ошибка сервера");
+  }
 
-const data = await response.json();
-return data;
+  const data = await response.json();
+  return data;
 }

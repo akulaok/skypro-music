@@ -9,7 +9,7 @@ type CentreblockProps = {
   tracks: trackType[];
 };
 
-export default function Centreblock({tracks}:CentreblockProps) {
+export default function Centreblock({ tracks }: CentreblockProps) {
 
   return (
     <div className={styles.main__centerblock}>

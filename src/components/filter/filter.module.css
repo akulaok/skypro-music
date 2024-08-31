@@ -74,12 +74,12 @@
 }
 
 .list::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 1); /* Цвет полосы прокрутки */
-  border-radius: 4px; /* Закругление углов полосы прокрутки */
+  background: rgba(255, 255, 255, 1);
+  border-radius: 4px;
 }
 
 .list ::-webkit-scrollbar-track {
-  background: rgba(75, 73, 73, 1); /* Цвет фона дорожки прокрутки */
+  background: rgba(75, 73, 73, 1);
 }
 
 .list_item {

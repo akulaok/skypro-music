@@ -12,9 +12,9 @@ export default function Playlist({ tracks }: PlaylistProps) {
     <div className={styles.centerblock__content}>
       <PlaylistTitle />
       <div className={styles.content__playlist}>
-      {tracks.map((track) => (
-        <Track track={track} key={track.id} />
-      ))}
+        {tracks.map((track) => (
+          <Track track={track} key={track.id} />
+        ))}
       </div>
     </div>
   );
