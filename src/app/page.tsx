@@ -1,13 +1,27 @@
-import Image from "next/image";
-import styles from "./page.module.css"
+import { getTracks } from "@/api/getTracksApi";
+import styles from "./page.module.css";
 import Bar from "@/components/bar/bar";
 import Main from "@/components/main/main";
-export default function HomePage() {
+import { trackType } from "@/types";
+
+
+export default async function HomePage() {
+  let tracks: trackType[] = [];
+  let errorMessage = "";
+
+  try {
+    tracks = await getTracks();
+  } catch (error: unknown) {
+    errorMessage =
+      error instanceof Error
+        ? "Возникли проблемы при загрузке треков: " + error.message
+        : "Неизвестная ошибка";
+  }
   return (
     <div className={styles.wrapper}>
       <div className={styles.container}>
-        <Main/>
-        <Bar/>
+        <Main tracks={tracks} />
+        <Bar />
         <footer className={styles.footer} />
       </div>
     </div>

@@ -1,9 +1,13 @@
+"use client";
 import Image from "next/image";
 import styles from './nav.module.css';
 import Burger from "../burger/burger";
 import Menu from "../menu/menu";
+import { useState } from "react";
 
 export default function Nav() {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <nav className={styles.main__nav}>
       <div className={styles.nav__logo}>
@@ -15,8 +19,8 @@ export default function Nav() {
           height={170}
         />
       </div>
-      <Burger/>
-      <Menu/>
+      <Burger setIsOpen={setIsOpen} />
+      {isOpen && <Menu />}
     </nav>
   );
 }

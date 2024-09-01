@@ -1,14 +1,20 @@
-import Image from "next/image";
-import styles from "./main.module.css"
+import styles from "./main.module.css";
 import Nav from "../nav/nav";
 import Centreblock from "../centerblock/centerblock";
 import Sidebar from "../sidebar/sidebar";
-export default function Main() {
+import { trackType } from "@/types";
+
+type MainProps = {
+  tracks: trackType[];
+};
+
+
+export default function Main({ tracks }: MainProps) {
   return (
     <main className={styles.main}>
-          <Nav/>
-          <Centreblock/>
-          <Sidebar/>
-        </main>
+      <Nav />
+      <Centreblock tracks={tracks} />
+      <Sidebar />
+    </main>
   );
 }
