@@ -48,7 +48,7 @@ export default function Bar({ track }: BarProps) {
             handleLoop={handleLoop}
             isLoop={isLoop}
           />
-          <Volume value= {volume} onChange={(e) => setVolume(Number(e.target.value))} />
+          <Volume value={volume} onChange={(e) => setVolume(Number(e.target.value))} />
         </div>
       </div>
     </div>

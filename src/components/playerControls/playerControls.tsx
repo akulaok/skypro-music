@@ -41,12 +41,11 @@ export default function PlayerControls({
         onClick={handleLoop}
       >
         <svg
-  className={`${styles.player__btn_repeat_svg} ${
-    isLoop ? styles.active : ''
-  }`}
->
-  <use href="img/icon/sprite.svg#icon-repeat" />
-</svg>
+          className={`${styles.player__btn_repeat_svg} ${isLoop ? styles.active : ''
+            }`}
+        >
+          <use href="img/icon/sprite.svg#icon-repeat" />
+        </svg>
 
       </div>
       <div className={`${styles.player__btn_shuffle} ${styles._btn_icon}`}>
