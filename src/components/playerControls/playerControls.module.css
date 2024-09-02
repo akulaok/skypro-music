@@ -101,8 +101,7 @@
   cursor: pointer;
 }
 
-.active svg {
+.active {
   fill: transparent;
   stroke: #ffffff;
-
 }

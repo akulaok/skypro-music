@@ -14,7 +14,7 @@ export default function TrackTitle({ title, logo }: TrackTitleProps) {
         </svg>
       </div>
       <div className={styles.track__title_text}>
-        <a className={styles.track__title_link} href={"href/"}>
+        <a className={styles.track__title_link}>
           {title}
           <span className={styles.track__title_span} />
         </a>

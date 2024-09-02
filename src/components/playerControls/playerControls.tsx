@@ -15,7 +15,7 @@ export default function PlayerControls({
 }: PlayerControlsProps) {
   return (
     <div className={styles.player__controls}>
-      <div className={styles.player__btn_prev}>
+      <div className={styles.player__btn_prev} onClick={() => alert("Еще не реализовано!")}>
         <svg className={styles.player__btn_prev_svg}>
           <use href="img/icon/sprite.svg#icon-prev" />
         </svg>
@@ -31,7 +31,7 @@ export default function PlayerControls({
           />
         </svg>
       </div>
-      <div className={styles.player__btn_next}>
+      <div className={styles.player__btn_next} onClick={() => alert("Еще не реализовано!")}>
         <svg className={styles.player__btn_next_svg}>
           <use href="img/icon/sprite.svg#icon-next" />
         </svg>
@@ -41,14 +41,13 @@ export default function PlayerControls({
         onClick={handleLoop}
       >
         <svg
-          className={`${styles.player__btn_repeat_svg} ${isLoop ? styles.active : ''
-            }`}
+          className={`${styles.player__btn_repeat_svg} ${isLoop ? styles.active : ''}`}
         >
           <use href="img/icon/sprite.svg#icon-repeat" />
         </svg>
 
       </div>
-      <div className={`${styles.player__btn_shuffle} ${styles._btn_icon}`}>
+      <div className={`${styles.player__btn_shuffle} ${styles._btn_icon}`} onClick={() => alert("Еще не реализовано!")}>
         <svg className={styles.player__btn_shuffle_svg}>
           <use href="img/icon/sprite.svg#icon-shuffle" />
         </svg>
