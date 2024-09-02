@@ -5,6 +5,7 @@ export type userType = {
   "last_name": string,
   "email": string,
 }
+
 export type trackType = {
   "id": number,
   "name": string,
@@ -13,7 +14,7 @@ export type trackType = {
   "genre": string,
   "duration_in_seconds": number,
   "album": string,
-  "logo": string | null,
+  "logo": string | undefined,
   "track_file": string,
   "stared_user": []
 }

@@ -2,7 +2,7 @@ import styles from './track.module.css';
 
 interface TrackTitleProps {
   title: string;
-  logo: string | null;
+  logo: string | undefined;
 }
 
 export default function TrackTitle({ title, logo }: TrackTitleProps) {
