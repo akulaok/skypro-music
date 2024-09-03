@@ -3,10 +3,10 @@ import { trackType } from "@/types";
 
 export function useAudioPlayer(track: trackType) {
   const audioRef = useRef<HTMLAudioElement>(null);
-  const [isPlaying, setIsPlaying] = useState<boolean>(false);
-  const [currentTime, setCurrentTime] = useState<number>(0);
-  const [isLoop, setIsLoop] = useState<boolean>(false);
-  const [volume, setVolume] = useState<number>(0.5);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [currentTime, setCurrentTime] = useState(0);
+  const [isLoop, setIsLoop] = useState(false);
+  const [volume, setVolume] = useState(0.5);
 
   useEffect(() => {
     if (audioRef.current) {
