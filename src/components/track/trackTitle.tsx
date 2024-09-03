@@ -2,7 +2,7 @@ import styles from './track.module.css';
 
 interface TrackTitleProps {
   title: string;
-  logo: string | null;
+  logo: string | undefined;
 }
 
 export default function TrackTitle({ title, logo }: TrackTitleProps) {
@@ -14,7 +14,7 @@ export default function TrackTitle({ title, logo }: TrackTitleProps) {
         </svg>
       </div>
       <div className={styles.track__title_text}>
-        <a className={styles.track__title_link} href={"href/"}>
+        <a className={styles.track__title_link}>
           {title}
           <span className={styles.track__title_span} />
         </a>

@@ -34,3 +34,8 @@ body {
   font-family: "Montserrat", sans-serif;
   color: #ffffff;
 }
+
+
+audio{
+  display: none;
+}

@@ -7,9 +7,10 @@ import styles from './centerblock.module.css';
 
 type CentreblockProps = {
   tracks: trackType[];
+  setTrack: (track: trackType) => void;
 };
 
-export default function Centreblock({ tracks }: CentreblockProps) {
+export default function Centreblock({ tracks, setTrack }: CentreblockProps) {
 
   return (
     <div className={styles.main__centerblock}>
@@ -18,7 +19,7 @@ export default function Centreblock({ tracks }: CentreblockProps) {
         Треки
       </h2>
       <Filter tracks={tracks} />
-      <Playlist tracks={tracks} />
+      <Playlist tracks={tracks} setTrack={setTrack} />
     </div>
   );
 }

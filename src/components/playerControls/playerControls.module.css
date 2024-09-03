@@ -21,6 +21,7 @@
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  cursor: pointer;
 }
 
 .player__btn_prev {
@@ -98,4 +99,9 @@
   fill: #696969;
   stroke: #ffffff;
   cursor: pointer;
+}
+
+.active {
+  fill: transparent;
+  stroke: #ffffff;
 }

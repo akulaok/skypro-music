@@ -6,14 +6,15 @@ import { trackType } from "@/types";
 
 type MainProps = {
   tracks: trackType[];
+  setTrack: (track: trackType) => void;
 };
 
 
-export default function Main({ tracks }: MainProps) {
+export default function Main({ tracks, setTrack }: MainProps) {
   return (
     <main className={styles.main}>
       <Nav />
-      <Centreblock tracks={tracks} />
+      <Centreblock tracks={tracks} setTrack={setTrack} />
       <Sidebar />
     </main>
   );
