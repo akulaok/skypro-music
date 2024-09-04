@@ -8,7 +8,7 @@ type FilterButtonProps = {
 };
 
 export function FilterButton({ text, isActive, list, onClick }: FilterButtonProps) {
-  
+
   return (
     <div className={styles.filter}>
       <div
@@ -20,7 +20,7 @@ export function FilterButton({ text, isActive, list, onClick }: FilterButtonProp
       {isActive && (
         <div className={styles.list_wrapper}>
           <ul className={styles.list}>
-            {list.map((listName, index) => (
+            {list && list.map((listName, index) => (
               <li className={styles.list_item} key={index}>
                 {listName}
               </li>

@@ -1,9 +1,13 @@
 import { useState, useEffect, useRef } from "react";
 import { trackType } from "@/types";
+import { useAppDispatch, useAppSelector } from "@/store/store";
+import { setIsPlaying } from "@/store/features/playlistSlice";
 
-export function useAudioPlayer(track: trackType) {
+export function useAudioPlayer(track: trackType | null) {
+
+  const { isPlaying, } = useAppSelector((state) => state.playlist);
+  const dispatch = useAppDispatch();
   const audioRef = useRef<HTMLAudioElement>(null);
-  const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [isLoop, setIsLoop] = useState(false);
   const [volume, setVolume] = useState(0.5);
@@ -11,9 +15,9 @@ export function useAudioPlayer(track: trackType) {
   useEffect(() => {
     if (audioRef.current) {
       audioRef.current.play();
-      setIsPlaying(true);
+      dispatch(setIsPlaying(true));
     }
-  }, [track]);
+  }, [track, dispatch]);
 
   useEffect(() => {
     if (audioRef.current) {
@@ -25,12 +29,24 @@ export function useAudioPlayer(track: trackType) {
     if (audioRef.current) {
       if (isPlaying) {
         audioRef.current.pause();
+        dispatch(setIsPlaying(false));
       } else {
         audioRef.current.play();
+        dispatch(setIsPlaying(true));
       }
     }
-    setIsPlaying((prev) => !prev);
   };
+
+
+  useEffect(() => {
+    if (audioRef.current) {
+      if (isPlaying) {
+        audioRef.current.play();
+      } else {
+        audioRef.current.pause();
+      }
+    }
+  }, [isPlaying]);
 
   const handleSeek = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (audioRef.current) {

@@ -7,9 +7,9 @@ import styles from "./player.module.css";
 type PlayerProps = {
   track: trackType;
   togglePlay: () => void;
-  isPlaying: boolean;
   handleLoop: () => void;
   isLoop: boolean;
+  isPlaying: boolean;
 }
 
 export default function Player({ track, togglePlay, isPlaying, handleLoop, isLoop }: PlayerProps) {

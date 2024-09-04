@@ -1,24 +1,20 @@
-import { trackType } from '@/types';
 import styles from './filter.module.css';
 import { FilterButton } from './filterButton';
 import { useState } from 'react';
 import { getUnique } from '@/utils';
 import filters from '../../consts';
+import { useAppSelector } from '@/store/store';
 
-type FilterProps = {
-  tracks: trackType[];
-};
-
-export default function Filter({ tracks }: FilterProps) {
+export default function Filter() {
   const [activeFilter, setActiveFilter] = useState('');
+  const { playlist: tracks } = useAppSelector(state => state.playlist);
+  const uniqueValues = getUnique({ activeFilter, tracks });
 
   function handleChangeFilter(filterName: string) {
     setActiveFilter((prevState) =>
       prevState === filterName ? '' : filterName
     );
   }
-
-  const uniqueValues = getUnique({ activeFilter, tracks });
 
   return (
     <div className={styles.centerblock__filter}>

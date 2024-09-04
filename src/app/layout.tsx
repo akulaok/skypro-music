@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import "./globals.css";
+import { ReduxProvider } from "@/store/ReduxProvider";
 
 const montserrat = Montserrat({ subsets: ["cyrillic"] });
 
@@ -22,9 +23,11 @@ export default function RootLayout({
         <meta content="width=device-width, initial-scale=1.0" name="viewport" />
         <title>Skypro</title>
       </head>
-      <body className={montserrat.className}>
-        {children}
-      </body>
+      <ReduxProvider>
+        <body className={montserrat.className}>
+          {children}
+        </body>
+      </ReduxProvider>
     </html>
   );
 }

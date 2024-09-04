@@ -1,4 +1,6 @@
+import { useAppDispatch, useAppSelector } from '@/store/store';
 import styles from './playerControls.module.css';
+import { setIsShuffle, setNextTrack, setPrevTrack } from '@/store/features/playlistSlice';
 
 type PlayerControlsProps = {
   togglePlay: () => void;
@@ -13,15 +15,30 @@ export default function PlayerControls({
   handleLoop,
   isLoop,
 }: PlayerControlsProps) {
+  const dispatch = useAppDispatch();
+  const isShuffle = useAppSelector((state) => state.playlist.isShuffle);
+
+  const handleNextTrack = () => {
+    dispatch(setNextTrack());
+  };
+
+  const handlePrevTrack = () => {
+    dispatch(setPrevTrack());
+  };
+
+  const handleShuffle = () => {
+    dispatch(setIsShuffle(!isShuffle));
+  };
+
   return (
     <div className={styles.player__controls}>
-      <div className={styles.player__btn_prev} onClick={() => alert("Еще не реализовано!")}>
-        <svg className={styles.player__btn_prev_svg}>
+      <button className={styles.player__btn} onClick={handlePrevTrack}>
+        <svg className={styles.player__btn_svg}>
           <use href="img/icon/sprite.svg#icon-prev" />
         </svg>
-      </div>
-      <div className={styles.player__btn_play} onClick={togglePlay}>
-        <svg className={styles.player__btn_play_svg}>
+      </button>
+      <button className={styles.player__btn} onClick={togglePlay}>
+        <svg className={styles.player__btn_svg}>
           <use
             href={
               isPlaying
@@ -30,28 +47,28 @@ export default function PlayerControls({
             }
           />
         </svg>
-      </div>
-      <div className={styles.player__btn_next} onClick={() => alert("Еще не реализовано!")}>
-        <svg className={styles.player__btn_next_svg}>
+      </button>
+      <button className={styles.player__btn} onClick={handleNextTrack}>
+        <svg className={styles.player__btn_svg}>
           <use href="img/icon/sprite.svg#icon-next" />
         </svg>
-      </div>
-      <div
-        className={`${styles.player__btn_repeat} ${styles._btn_icon}`}
+      </button>
+      <button
+        className={`${styles.player__btn} ${isLoop ? styles.active : ''}`}
         onClick={handleLoop}
       >
-        <svg
-          className={`${styles.player__btn_repeat_svg} ${isLoop ? styles.active : ''}`}
-        >
+        <svg className={styles.player__btn_svg}>
           <use href="img/icon/sprite.svg#icon-repeat" />
         </svg>
-
-      </div>
-      <div className={`${styles.player__btn_shuffle} ${styles._btn_icon}`} onClick={() => alert("Еще не реализовано!")}>
-        <svg className={styles.player__btn_shuffle_svg}>
+      </button>
+      <button
+        className={`${styles.player__btn} ${isShuffle ? styles.active : ''}`}
+        onClick={handleShuffle}
+      >
+        <svg className={styles.player__btn_svg}>
           <use href="img/icon/sprite.svg#icon-shuffle" />
         </svg>
-      </div>
+      </button>
     </div>
   );
 }

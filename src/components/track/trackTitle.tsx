@@ -3,9 +3,11 @@ import styles from './track.module.css';
 interface TrackTitleProps {
   title: string;
   logo: string | undefined;
+  conditionCurrentTrack: boolean;
+  isPlaying: boolean;
 }
 
-export default function TrackTitle({ title, logo }: TrackTitleProps) {
+export default function TrackTitle({ title, logo, conditionCurrentTrack, isPlaying }: TrackTitleProps) {
   return (
     <div className={styles.track__title}>
       <div className={styles.track__title_image}>
