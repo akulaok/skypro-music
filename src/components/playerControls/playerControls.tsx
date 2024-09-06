@@ -32,13 +32,13 @@ export default function PlayerControls({
 
   return (
     <div className={styles.player__controls}>
-      <button className={styles.player__btn} onClick={handlePrevTrack}>
-        <svg className={styles.player__btn_svg}>
+      <div className={styles.player__btn_prev} onClick={handlePrevTrack}>
+        <svg className={styles.player__btn_prev_svg}>
           <use href="img/icon/sprite.svg#icon-prev" />
         </svg>
-      </button>
-      <button className={styles.player__btn} onClick={togglePlay}>
-        <svg className={styles.player__btn_svg}>
+      </div>
+      <div className={styles.player__btn_play} onClick={togglePlay}>
+        <svg className={styles.player__btn_play_svg}>
           <use
             href={
               isPlaying
@@ -47,28 +47,28 @@ export default function PlayerControls({
             }
           />
         </svg>
-      </button>
-      <button className={styles.player__btn} onClick={handleNextTrack}>
-        <svg className={styles.player__btn_svg}>
+      </div>
+      <div className={styles.player__btn_next} onClick={handleNextTrack}>
+        <svg className={styles.player__btn_next_svg}>
           <use href="img/icon/sprite.svg#icon-next" />
         </svg>
-      </button>
-      <button
-        className={`${styles.player__btn} ${isLoop ? styles.active : ''}`}
+      </div>
+      <div
+        className={`${styles.player__btn_repeat} ${styles._btn_icon} ${isLoop ? styles.active : ''}`}
         onClick={handleLoop}
       >
-        <svg className={styles.player__btn_svg}>
+        <svg className={styles.player__btn_repeat_svg}>
           <use href="img/icon/sprite.svg#icon-repeat" />
         </svg>
-      </button>
-      <button
-        className={`${styles.player__btn} ${isShuffle ? styles.active : ''}`}
+      </div>
+      <div
+        className={`${styles.player__btn_shuffle} ${styles._btn_icon} ${isShuffle ? styles.active : ''}`}
         onClick={handleShuffle}
       >
-        <svg className={styles.player__btn_svg}>
+        <svg className={styles.player__btn_shuffle_svg}>
           <use href="img/icon/sprite.svg#icon-shuffle" />
         </svg>
-      </button>
+      </div>
     </div>
   );
 }
