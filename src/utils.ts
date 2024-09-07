@@ -22,7 +22,7 @@ export function getUnique({ activeFilter, tracks }: GetUniqueParams): string[] {
 }
 
 export const getUniqueValues = <T, K extends keyof T>(items: T[], field: K): string[] => {
-  return Array.from(new Set(items.map(item => String(item[field]))));
+  return Array.from(new Set(items && items.map(item => String(item[field]))));
 };
 
 

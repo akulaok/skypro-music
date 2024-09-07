@@ -1,14 +1,13 @@
-const hostGet = "https://skypro-music-api.skyeng.tech/catalog/track/all/";
+import { trackType } from "@/types"
 
-export async function getTracks() {
-  const response = await fetch(hostGet, {
-    method: "GET",
-  });
+export const BASE_URL = 'https://webdev-music-003b5b991590.herokuapp.com'
 
-  if (!response.ok) {
-    throw new Error("Ошибка сервера");
-  }
-
-  const data = await response.json();
-  return data;
+export const getTracks = async (): Promise<trackType[]> => {
+    const res = await fetch(BASE_URL + '/catalog/track/all/')
+    if (!res.ok) {
+        throw new Error('Ошибка в запросе')
+    }
+    return res.json().then((tracksData) =>
+        tracksData.data
+    )
 }

@@ -1,18 +1,16 @@
 "use client";
 
-import { trackType } from "@/types";
 import Player from "../player/player";
 import Volume from "../volume/volume";
 import styles from "./bar.module.css";
 import { formatTime } from "@/utils";
 import { useAudioPlayer } from "@/hooks/useAudioPlayer";
 import { ProgressBar } from "../progressBar/progressBar";
+import { useAppSelector } from "@/store/store";
 
-type BarProps = {
-  track: trackType;
-};
 
-export default function Bar({ track }: BarProps) {
+export default function Bar() {
+  const track = useAppSelector((state) => state.playlist.currentTrack);
   const {
     audioRef,
     isPlaying,
@@ -25,11 +23,10 @@ export default function Bar({ track }: BarProps) {
     handleLoop,
     setCurrentTime
   } = useAudioPlayer(track);
-
   const duration = audioRef.current?.duration || 0;
 
   return (
-    <div className={styles.bar}>
+    track && <div className={styles.bar}>
       <div className={styles.bar__content}>
         <div className={styles.bar__player_progress}>
           {formatTime(currentTime)} / {formatTime(duration)}
