@@ -13,4 +13,9 @@
   background-color: #181818;
 }
 
+.errorMessage{
+  display: flex;
+  
+}
+
 

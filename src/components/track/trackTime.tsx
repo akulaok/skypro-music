@@ -1,3 +1,4 @@
+import { formatTime } from '@/utils';
 import styles from './track.module.css';
 
 interface TrackTimeProps {
@@ -10,7 +11,7 @@ export default function TrackTime({ time }: TrackTimeProps) {
       <svg className={styles.track__time_svg}>
         <use xlinkHref="img/icon/sprite.svg#icon-like" />
       </svg>
-      <span className={styles.track__time_text}>{time}</span>
+      <span className={styles.track__time_text}>{formatTime(time)}</span>
     </div>
   );
 }
