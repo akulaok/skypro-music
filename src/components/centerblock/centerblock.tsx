@@ -18,7 +18,7 @@ export default function Centreblock({ tracks }: CentreblockProps) {
         Треки
       </h2>
       <Filter tracks={tracks} />
-      <Playlist tracks={tracks} />
+      {/* <Playlist tracks={tracks} /> */}
     </div>
   );
 }

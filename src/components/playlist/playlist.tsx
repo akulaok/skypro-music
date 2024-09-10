@@ -12,7 +12,7 @@ export default function Playlist({ tracks }: PlaylistProps) {
     <div className={styles.centerblock__content}>
       <PlaylistTitle />
       <div className={styles.content__playlist}>
-        {tracks.map((track) => (
+        {tracks && tracks.map((track) => (
           <Track track={track} key={track.id} />
         ))}
       </div>
